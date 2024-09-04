@@ -1,0 +1,7 @@
+# Created by cloud-init v. 23.1.1-10.el8 on Wed, 22 Nov 2023 17:36:43 +0000
+
+# User rules for cloud-user
+cloud-user ALL=(ALL) NOPASSWD:ALL
+
+# User rules for cloud-user
+cloud-user ALL=(ALL) NOPASSWD:ALL

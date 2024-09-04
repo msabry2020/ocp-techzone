@@ -1,0 +1,22 @@
+logrotate state -- version 2
+"/var/log/firewalld" 2024-9-4-14:0:0
+"/var/log/opal-prd.log" 2024-9-4-14:0:0
+"/var/log/haproxy.log" 2024-9-4-14:0:0
+"/var/named/data/named.run" 2024-9-4-14:0:0
+"/var/log/boot.log" 2024-9-4-14:0:0
+"/var/log/hawkey.log" 2024-9-4-14:0:0
+"/var/log/kvm_stat.csv" 2024-9-4-14:0:0
+"/var/log/insights-client/*.log" 2024-9-4-14:0:0
+"/var/log/httpd/error_log" 2024-9-4-14:0:0
+"/var/log/wtmp" 2024-9-4-14:0:0
+"/var/log/chrony/*.log" 2024-9-4-14:0:0
+"/var/log/spooler" 2024-9-4-14:0:0
+"/var/log/btmp" 2024-9-4-14:0:0
+"/var/log/rhsm/rhsmcertd.log" 2024-9-4-14:0:0
+"/var/log/maillog" 2024-9-4-14:0:0
+"/var/log/sssd/sssd_kcm.log" 2024-9-4-14:0:0
+"/var/log/secure" 2024-9-4-14:0:0
+"/var/log/rhsm/rhsm.log" 2024-9-4-14:0:0
+"/var/log/messages" 2024-9-4-14:0:0
+"/var/log/cron" 2024-9-4-14:0:0
+"/var/log/httpd/access_log" 2024-9-4-14:0:0

@@ -1,0 +1,94 @@
+---
+document: modulemd
+version: 2
+data:
+  name: httpd
+  stream: "2.4"
+  version: 8100020240807144746
+  context: 489197e6
+  arch: ppc64le
+  summary: Apache HTTP Server
+  description: >-
+    Apache httpd is a powerful, efficient, and extensible HTTP server.
+  license:
+    module:
+    - MIT
+    content:
+    - ASL 2.0
+  xmd: {}
+  dependencies:
+  - buildrequires:
+      platform: [el8.10.0.z]
+    requires:
+      platform: [el8]
+  references:
+    documentation: https://httpd.apache.org/docs/2.4/
+    tracker: https://bz.apache.org/bugzilla/
+  profiles:
+    common:
+      rpms:
+      - httpd
+      - httpd-filesystem
+      - httpd-tools
+      - mod_http2
+      - mod_ssl
+    devel:
+      rpms:
+      - httpd
+      - httpd-devel
+      - httpd-filesystem
+      - httpd-tools
+    minimal:
+      rpms:
+      - httpd
+  api:
+    rpms:
+    - httpd
+    - httpd-devel
+    - httpd-filesystem
+    - mod_ssl
+  components:
+    rpms:
+      httpd:
+        rationale: Apache httpd
+        ref: stream-httpd-2.4-rhel-8.10.0
+        buildorder: 10
+        arches: [aarch64, i686, ppc64le, s390x, x86_64]
+      mod_http2:
+        rationale: HTTP/2 support for Apache httpd
+        ref: stream-httpd-2.4-rhel-8.10.0
+        buildorder: 20
+        arches: [aarch64, i686, ppc64le, s390x, x86_64]
+      mod_md:
+        rationale: Certificate provisioning using ACME for Apache httpd
+        ref: stream-httpd-2.4-rhel-8.10.0
+        buildorder: 20
+        arches: [aarch64, i686, ppc64le, s390x, x86_64]
+  artifacts:
+    rpms:
+    - httpd-0:2.4.37-65.module+el8.10.0+22196+d82931da.2.ppc64le
+    - httpd-0:2.4.37-65.module+el8.10.0+22196+d82931da.2.src
+    - httpd-debuginfo-0:2.4.37-65.module+el8.10.0+22196+d82931da.2.ppc64le
+    - httpd-debugsource-0:2.4.37-65.module+el8.10.0+22196+d82931da.2.ppc64le
+    - httpd-devel-0:2.4.37-65.module+el8.10.0+22196+d82931da.2.ppc64le
+    - httpd-filesystem-0:2.4.37-65.module+el8.10.0+22196+d82931da.2.noarch
+    - httpd-manual-0:2.4.37-65.module+el8.10.0+22196+d82931da.2.noarch
+    - httpd-tools-0:2.4.37-65.module+el8.10.0+22196+d82931da.2.ppc64le
+    - httpd-tools-debuginfo-0:2.4.37-65.module+el8.10.0+22196+d82931da.2.ppc64le
+    - mod_http2-0:1.15.7-10.module+el8.10.0+21653+eaff63f0.ppc64le
+    - mod_http2-0:1.15.7-10.module+el8.10.0+21653+eaff63f0.src
+    - mod_http2-debuginfo-0:1.15.7-10.module+el8.10.0+21653+eaff63f0.ppc64le
+    - mod_http2-debugsource-0:1.15.7-10.module+el8.10.0+21653+eaff63f0.ppc64le
+    - mod_ldap-0:2.4.37-65.module+el8.10.0+22196+d82931da.2.ppc64le
+    - mod_ldap-debuginfo-0:2.4.37-65.module+el8.10.0+22196+d82931da.2.ppc64le
+    - mod_md-1:2.0.8-8.module+el8.9.0+19080+567b90f8.ppc64le
+    - mod_md-1:2.0.8-8.module+el8.9.0+19080+567b90f8.src
+    - mod_md-debuginfo-1:2.0.8-8.module+el8.9.0+19080+567b90f8.ppc64le
+    - mod_md-debugsource-1:2.0.8-8.module+el8.9.0+19080+567b90f8.ppc64le
+    - mod_proxy_html-1:2.4.37-65.module+el8.10.0+22196+d82931da.2.ppc64le
+    - mod_proxy_html-debuginfo-1:2.4.37-65.module+el8.10.0+22196+d82931da.2.ppc64le
+    - mod_session-0:2.4.37-65.module+el8.10.0+22196+d82931da.2.ppc64le
+    - mod_session-debuginfo-0:2.4.37-65.module+el8.10.0+22196+d82931da.2.ppc64le
+    - mod_ssl-1:2.4.37-65.module+el8.10.0+22196+d82931da.2.ppc64le
+    - mod_ssl-debuginfo-1:2.4.37-65.module+el8.10.0+22196+d82931da.2.ppc64le
+...

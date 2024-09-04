@@ -1,0 +1,9 @@
+[Unit]
+Description=OpenShift CSR Monitor
+After=network-online.target
+
+[Service]
+ExecStart=/bin/bash -c /usr/local/bin/csrmonitor.sh
+
+[Install]
+WantedBy=multi-user.target

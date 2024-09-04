@@ -1,0 +1,2 @@
+# User rule for cecuser
+cecuser ALL=(ALL) NOPASSWD:ALL

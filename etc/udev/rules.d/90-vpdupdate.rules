@@ -1,0 +1,36 @@
+DEVPATH!="/devices/*", GOTO="vpd_end"
+# See SysFSTreeCollector::filterDevicePath()
+DEVPATH=="/devices/virtual/*", GOTO="vpd_end"
+DEVPATH=="/devices/system/*", GOTO="vpd_end"
+DEVPATH=="/devices/cpu/*", GOTO="vpd_end"
+DEVPATH=="/devices/breakpoint/*", GOTO="vpd_end"
+DEVPATH=="/devices/tracepoint/*", GOTO="vpd_end"
+DEVPATH=="/devices/software/*", GOTO="vpd_end"
+
+# See SysFSTreeCollector::filterDevice()
+ENV{DEVTYPE}=="scsi_target", GOTO="vpd_end"
+SUBSYSTEM=="enclosure", GOTO="vpd_end"
+
+# See SysFSTreeCollector::isDevice()
+ENV{DEVTYPE}=="partition", GOTO="vpd_end"
+
+# More devices that aren't covered by VPD
+DEVPATH=="/devices/uprobe/*", GOTO="vpd_end"
+DEVPATH=="/devices/kprobe/*", GOTO="vpd_end"
+DEVPATH=="/devices/rbd/*", GOTO="vpd_end"
+
+SUBSYSTEM=="scsi_device", GOTO="vpd_update"
+SUBSYSTEM=="scsi_host", GOTO="vpd_update"
+# Don't generate extra events, we have one for the scsi_device already
+# This rule also skips SCSI block device uevents
+# (but the corresponding scsi_device will have triggered vpdupdate).
+SUBSYSTEMS=="scsi*", GOTO="vpd_end"
+
+# virtual NVMe devices (NVMeoF) are skipped because of the rule above
+SUBSYSTEM=="nvme", GOTO="vpd_update"
+SUBSYSTEM=="nvme-subsystem", GOTO="vpd_update"
+SUBSYSTEMS=="nvme*", GOTO="vpd_end"
+
+LABEL="vpd_update"
+RUN+="/bin/touch /run/run.vpdupdate"
+LABEL="vpd_end"

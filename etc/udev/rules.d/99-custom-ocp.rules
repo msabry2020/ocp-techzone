@@ -1,0 +1,1 @@
+ENV{DM_UUID}=="mpath-3600507680c818022f00000000000ee3a" SYMLINK+="disk/pv-storage-disk"
