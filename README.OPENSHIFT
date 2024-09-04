@@ -1,0 +1,65 @@
+
+Provided OpenShift infrastructure:
+
+
+1. Bastion / helper node
+
+   This node hosts various front end services for the OpenShift cluster:
+
+   A. An internal DNS name server used by the cluster.
+   B. A load balancer using haproxy.
+   C. An Apache web server that is used during the installs.
+   D. An NFS server that exports storage for the nfs-provisioner and
+      persistent volume claims.
+   E. The "oc" command line client.
+
+
+2. Master / worker node
+
+   Normally the master nodes runs the control plane management functions
+   and the worker nodes host the end user application workloads.
+
+   In this modified single node cluster configuration the master node has
+   been enabled as a worker node so both roles are performed by the same
+   node.
+
+   Because there is only the single node you should not attempt to apply
+   any upgrades as there is no way to perform a rolling upgrade.
+
+
+OpenShift login information:
+
+
+1. From the command line.
+
+   From the bastion node you can use the "oc" command line client.
+
+   The ~/.kube directory with needed connection credentials has been setup
+   for the cecuser and root accounts.
+
+   The "oc" tool has been installed under /usr/local/bin so if you try to
+   run it and it is not found make sure /usr/local/bin is in your PATH.
+   
+   For example if you run "sudo su -" to access root it should be setup okay
+   but if you run "sudo -i" to access root it may be missing.
+   
+
+2. From the Web Console.
+
+   Most users will use the Web based management console which is available
+   at:
+   
+     https://console-openshift-console.apps.p1293.cecc.ihost.com
+
+   Two login methods are available:
+
+   A. If using kube:admin the credentials are:
+
+      Username: kubeadmin
+      Password: Found on the bastion in the ~/auth/kubeadmin-password file.
+
+   B. If using htpasswd the credentials are:
+
+      Username: cecuser
+      Password: %Traf3BbE50D58+
+

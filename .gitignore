@@ -1,0 +1,5 @@
+*.ssh
+*.tgz
+oc
+kubectl
+openshift-install

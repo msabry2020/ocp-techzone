@@ -1,0 +1,22 @@
+apiVersion: machineconfiguration.openshift.io/v1
+kind: MachineConfig
+metadata:
+  creationTimestamp: null
+  labels:
+    machineconfiguration.openshift.io/role: master
+  name: 99-master-ssh
+spec:
+  config:
+    ignition:
+      version: 3.2.0
+    passwd:
+      users:
+      - name: core
+        sshAuthorizedKeys:
+        - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDTtZ9RdBBhgS2HLgaeHJufhFVsZwpFFFifmedRta2drKy99sDvFQV9JbTTt6WCiJnplu1lI4Rs2sNBWg6JZAYf/FR6LObUZ4rUA6c9wjJIhrzkaot/1WZMvksN0O2oOqR426CbjfR7zzmCBTab0ar2pBay6hD/NZydqrMC2Ch4LGpbejX0mmIYcEpecGxR30GdgzP1GEmwfMx4hyBHXLJZvxMraExv70TshfpjkXhJNe9g7N0XjdQ0ELeEyrPW9epcLWIkpR29l0aomU8y5uV72rPpNksg6TL6gwW2c1VpuSnvZi3h1pydMRh7bbwdTdieQpQRDDpGzTmy0FajZeE8d0rGXxHFVyp5ANtG52skxhCCv2xoY9gC/wiPAW6I6SU0BdsfJCOIIomHL6YWWYp8x+ZKrqiG+AU0ubeb+Iw7Agghx7oZTweoIaEcA90wo9ye8XW1iBe9wAs2PrDx118jKixsfdf3V3cQTDgiXAZhdQ9RDBtjoupglOrQcYpXIaRK2t1KuZUpvtWblbsgB2T5J2VxRDyyfKwiu8jbMoSkr/KrUvRQPMnwtsLGVBIbdZeBUzptYUP/C8YXXhbNOZmMOdNGr5UhSKYxf8akdxAQCi4aM9XBIFbuMZQPdx8K8tnNQ4Z5Crlkf5dpUOsLyQVQXm8C0rrVxlL7KcWS6JOR1w==
+          cecuser@tz-66d891a6684f19a4a8b06a40
+  extensions: null
+  fips: false
+  kernelArguments: null
+  kernelType: ""
+  osImageURL: ""
